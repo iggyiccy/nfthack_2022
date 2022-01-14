@@ -29,7 +29,7 @@ function Intro() {
             </div>
             <div className="flex align-middle gap-x-2 mb-1">
               <Image width="20" height="20" src={location} alt="location" />
-              <h4>1275 Bloomfield Avenue, · Fairfield, NJ</h4>
+              <h4>1275 Bloomfield Avenue, Fairfield, NJ</h4>
             </div>
           </div>
           <div>
