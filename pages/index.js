@@ -116,11 +116,8 @@ export default function Home() {
   return (
     <div className="max-w-lg mt-36 mx-auto text-center px-4">
       <Head>
-        <title>Shitcoin Playground</title>
-        <meta
-          name="shitcoin playground"
-          content="Your all-in-one shitcoin playground."
-        />
+        <title>Member Only Party</title>
+        <meta name="Member Only Party" content="register here." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -136,11 +133,11 @@ export default function Home() {
             <Image
               width="200"
               height="200"
-              src="https://media.giphy.com/media/uWWlRGuXzFPKXdXZH1/giphy.gif"
-              alt="shitcoin-logo"
+              src="https://media.giphy.com/media/KzDqC8LvVC4lshCcGK/giphy.gif"
+              alt="party"
             />
             <h1 className="text-4xl font-semibold mb-8">
-              💩 Shitcoin Playground
+              🍾 Member Only Party
             </h1>
             <div className="space-y-8">
               <div className="flex flex-col space-y-4">
