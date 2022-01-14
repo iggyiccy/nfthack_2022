@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { ethers } from "ethers";
 import { hasEthereum } from "../utils/ethereum";
 import CreateProjectToken from "../src/artifacts/contracts/CreateProjectToken.sol/CreateProjectToken.json";
+import Intro from "./components/intro";
 
 export default function Home() {
   const [setPTAddress, setPTAddressState] = useState("");
@@ -114,7 +115,7 @@ export default function Home() {
   }
 
   return (
-    <div className="max-w-lg mt-36 mx-auto text-center px-4">
+    <div className="mx-auto text-center px-4">
       <Head>
         <title>Member Only Party</title>
         <meta name="Member Only Party" content="register here." />
@@ -130,20 +131,15 @@ export default function Home() {
           </p>
         ) : (
           <>
-            <Image
-              width="200"
-              height="200"
-              src="https://media.giphy.com/media/KzDqC8LvVC4lshCcGK/giphy.gif"
-              alt="party"
-            />
+            <Intro />
             <h1 className="text-4xl font-semibold mb-8">
-              🍾 Member Only Party
+              🍾 Member Only Party 🍾
             </h1>
             <div className="space-y-8">
-              <div className="flex flex-col space-y-4">
+              <div className="max-w-lg mx-auto flex flex-col space-y-4">
                 <input
                   className="border p-4 w-100 text-center"
-                  placeholder="👉 Your shitcoin contract address will show here 👈"
+                  placeholder="👉 Paste your membership contract here 👈"
                   value={setPTAddress[setPTAddress.length - 1]}
                   disabled
                 />
@@ -151,10 +147,10 @@ export default function Home() {
                   className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-md w-full"
                   onClick={fetchTokenAddress}
                 >
-                  Fetch Last Shitcoin Contract Address
+                  Refresh
                 </button>
               </div>
-              <div className="space-y-8">
+              <div className="max-w-lg mx-auto space-y-8">
                 <div className="flex flex-col space-y-4">
                   <input
                     className="border p-4 text-center"

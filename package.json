@@ -13,6 +13,7 @@
     "@uniswap/sdk-core": "^3.0.1",
     "@uniswap/v3-core": "^1.0.0",
     "@uniswap/v3-sdk": "^3.5.1-optimism-regensis",
+    "@unlock-protocol/unlock-js": "^0.20.4",
     "dotenv": "^10.0.0",
     "ethers": "^5.4.3",
     "jshint": "^2.13.1",
