@@ -5,6 +5,8 @@ import { ethers } from "ethers";
 import { hasEthereum } from "../utils/ethereum";
 import CreateProjectToken from "../src/artifacts/contracts/CreateProjectToken.sol/CreateProjectToken.json";
 import Intro from "./components/intro";
+import Navbar from "./components/navbar";
+import About from "./home";
 
 export default function Home() {
   const [setPTAddress, setPTAddressState] = useState("");
@@ -132,6 +134,8 @@ export default function Home() {
         ) : (
           <>
             <Intro />
+            <Navbar />
+            <About />
             <h1 className="text-4xl font-semibold mb-8">
               🍾 Member Only Party 🍾
             </h1>

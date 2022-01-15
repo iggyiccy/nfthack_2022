@@ -9,7 +9,7 @@ function Intro() {
     <>
       <section className="py-10 bg-stone-100 my-10">
         <div className="grid grid-cols-1 sm:grid-cols-2  gap-20 items-center max-w-6xl mx-auto">
-          <div className="text-left px-8 py-8 md:mr-6 bg-gray-200 relative h-64 rounded-lg">
+          <div className="text-left px-8 py-6 md:mr-6 bg-gray-200 relative h-64 rounded-lg">
             <h3 className="text-4xl sm:leading-snug tracking-tight font-bold text-black">
               Mafia Game Night
             </h3>
