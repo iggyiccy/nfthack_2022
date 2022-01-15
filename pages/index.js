@@ -1,12 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { useEffect, useState, useRef } from "react";
 import { ethers } from "ethers";
 import { hasEthereum } from "../utils/ethereum";
 import CreateProjectToken from "../src/artifacts/contracts/CreateProjectToken.sol/CreateProjectToken.json";
+import UnlockContract from "../contracts/artifacts/UnlockContractAbi.json";
 import Intro from "./components/intro";
 import Navbar from "./components/navbar";
 import About from "./home";
+import Register from "./components/register";
 
 export default function Home() {
   const [setPTAddress, setPTAddressState] = useState("");
@@ -116,6 +119,10 @@ export default function Home() {
     setPTTotalSupplyState("");
   }
 
+  const openUnlockProtocol = () => {
+    window.unlockProtocol && window.unlockProtocol.loadCheckoutModal();
+  };
+
   return (
     <div className="mx-auto text-center px-4">
       <Head>
@@ -123,22 +130,53 @@ export default function Home() {
         <meta name="Member Only Party" content="register here." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Script id="show-banner" strategy="lazyOnload">
+        {`(function (d, s) {
+          var js = d.createElement(s),
+            sc = d.getElementsByTagName(s)[0];
+          js.src =
+            "https://paywall.unlock-protocol.com/static/unlock.latest.min.js";
+          sc.parentNode.insertBefore(js, sc);
+        })(document, "script");`}
+      </Script>
+      <Script id="unlock-protocol-config" strategy="lazyOnload">
+        {`var unlockProtocolConfig = {
+          "pessimistic": true,
+          "locks": {
+            "0x17a34fE4b54393571e54602324925Fc25B0774b9": {
+              "network": 4,
+              "name": "Unlock members"
+            }
+          },
+          "icon": "https://unlock-protocol.com/static/images/svg/unlock-word-mark.svg",
+          "callToAction": { "default": "Please join the membership!" },
+          "metadataInputs": [{ "name": "Name", "type": "text", "required": true }]
+        }`}
+      </Script>
       <main className="space-y-8">
-        {!process.env.NEXT_PUBLIC_CREATEPROJECTTOKEN_ADDRESS ? (
+        {!process.env.NEXT_PUBLIC_UNLOCK_ADDRESS ? (
           <p className="text-md">
-            Please add a value to the{" "}
-            <pre>NEXT_PUBLIC_CREATEPROJECTTOKEN_ADDRESS</pre> environment
-            variable.
+            Please add a value to the <pre>NEXT_PUBLIC_UNLOCK_ADDRESS</pre>{" "}
+            environment variable.
           </p>
         ) : (
           <>
+            <div className="mt-5 text-sm text-gray-400">
+              {connectedWalletAddress && (
+                <p className="text-md">{connectedWalletAddress}</p>
+              )}
+            </div>
             <Intro />
             <Navbar />
             <About />
-            <h1 className="text-4xl font-semibold mb-8">
-              🍾 Member Only Party 🍾
-            </h1>
+            <p className="flex justify-center items-center">
+              <button
+                className="max-w-sm mt-4 w-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-indigo-100 py-2 rounded-md text-lg tracking-wide"
+                onClick={openUnlockProtocol}
+              >
+                Join Now!
+              </button>
+            </p>
             <div className="space-y-8">
               <div className="max-w-lg mx-auto flex flex-col space-y-4">
                 <input
@@ -199,11 +237,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="h-4">
-                {connectedWalletAddress && (
-                  <p className="text-md">{connectedWalletAddress}</p>
-                )}
-              </div>
             </div>
           </>
         )}
@@ -211,7 +244,7 @@ export default function Home() {
 
       <footer className="mt-20">
         <a
-          href="https://github.com/yauwa936/Project3"
+          href="https://github.com/iggyiccy/nfthack_2022"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:text-blue-700"
