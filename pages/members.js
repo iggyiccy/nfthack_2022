@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function Members() {
   const query = `{
-        keys(where: {lock: "0xbB8a1e4830bBAe55283Ef6C43996044698E8d6DE"}) {
+        keys(where: {lock: "0x869e113e5ff786a9ae8027b73f3eb54b94a159be"}) {
             id
             lock {
                 id
