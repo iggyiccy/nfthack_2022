@@ -51,7 +51,7 @@ function Heading() {
       </Script>
       <Script id="unlock-protocol-config" strategy="lazyOnload">
         {`var unlockProtocolConfig = {
-          "pessimistic": true,
+          "pessimistic": false,
           "locks": {
             "0xbB8a1e4830bBAe55283Ef6C43996044698E8d6DE": {
               "network": 4,
