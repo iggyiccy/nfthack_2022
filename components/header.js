@@ -53,7 +53,7 @@ function Heading() {
         {`var unlockProtocolConfig = {
           "pessimistic": true,
           "locks": {
-            "0x17a34fE4b54393571e54602324925Fc25B0774b9": {
+            "0xbB8a1e4830bBAe55283Ef6C43996044698E8d6DE": {
               "network": 4,
               "name": "Unlock members"
             }
